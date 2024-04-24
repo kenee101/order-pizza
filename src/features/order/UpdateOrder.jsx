@@ -1,13 +1,8 @@
 import { useFetcher } from 'react-router-dom';
 import Button from '../../ui/Button';
-import PropTypes from 'prop-types';
 import { updateOrder } from '../../services/apiRestaurant';
 
-UpdateOrder.propTypes = {
-  order: PropTypes.object,
-};
-
-function UpdateOrder({ order }) {
+function UpdateOrder() {
   const fetcher = useFetcher();
 
   return (
@@ -19,7 +14,7 @@ function UpdateOrder({ order }) {
 
 export default UpdateOrder;
 
-export async function action(request, params) {
+export async function action({ request, params }) {
   const data = { priority: true };
   await updateOrder(params.orderId, data);
 
